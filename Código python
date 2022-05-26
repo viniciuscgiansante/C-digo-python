@@ -1,0 +1,49 @@
+* Criar um novo usuário
+
+def adicionar_usuario():
+usuario=input("Nome do usuario a ser criado ")
+
+print("Ola, ", name)
+print("Agora digite a senha:")
+
+senha = getpass.getpass()   
+
+try: 
+        subprocess.run(['useradd', '-p', senha, usuario ])       
+     except: 
+         print(f"falha ao adicionar.")                      
+         sys.exit(1) 
+  
+adicionar_usuario() 
+
+--------------------------------------------------------------------
+
+* Desativar um usuário existente
+
+def desativar_usuario():
+
+usuario=input("Nome do usuario a ser desativado ")
+
+resposta=input("Deseja desativar o usuario ? S ou N" usuario)
+if resposta == 's':
+	try: 
+        subprocess.run(['usermod', '-L', usuario ])       
+     except: 
+         print(f"Falha ao Desativar.")                      
+         sys.exit(1)
+
+
+if resposta == 'n':
+	print("Operacao Cancelada")
+	sys.exit(1)
+  
+  desativar_usuario()
+
+-------------------------------------------------------------------------
+
+* Consultar usuários ativos
+
+def consultar_usuario():
+
+try: 
+        subprocess.run(['users'])
